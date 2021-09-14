@@ -2,6 +2,12 @@
 
 Secco (**Se**parate **c**ommunication from **co**mputation) is a distributed analytic system for SQL, Graph Analytic, and Subgraph Query.
 
+#### Table of Contents
+1. [Prerequisite](#Prerequisite)
+2. [Project Structure](#Project-Structure)
+3. [Usage](#Usage)
+4. [Testing](#Testing)
+
 ------
 
 ### Prerequisite
@@ -98,6 +104,10 @@ To generate synthetic datasets needed in Workload Experiment Testing
 3. in SBT shell, execute `testOnly *SyntheticDatasetsSuite`
 4. the generated synthetic datasets will be in `./datasets`
 
+##### Demo Datasets
+
+We have prepared three demo datasets, `debugData`, `imdb` (demo version), and `wiki` in `./datasets`
+
 ##### Preprocessing
 
 You need to do some preprocessing on the raw datasets.
@@ -121,7 +131,7 @@ test.sh: script that contains test in the paper
 
 To correctly run the scripts, you need to modify the scripts based on your own computer's and clusters' settings.
 
-1. modify upload.sh by replacing `itsc:/users/itsc/s880006/secco/testing/Secco` with your own clusters folder address
+1. put files you want to upload to cluster under `script/upload`, and modify upload.sh by replacing `Cluster` with your own clusters folder address. 
 2. modify test.sh by assiging DataLocation with the location you stored datasets in HDFS.
 3. modify runSpark-logo.sh by replacing $SPARK_HOME with your own spark installation address. 
 

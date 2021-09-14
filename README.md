@@ -1,6 +1,6 @@
 ## Secco
 
-Secco (**Se**parate **c**ommunication from **co**mputation) is a distributed analytic system for SQL, Graph Analytic, and Subgraph Query.
+Secco (**Se**parate **c**ommunication from **co**mputation) is a distributed SQL system for SQL Query, Graph Analytic, and Subgraph Query.
 
 #### Table of Contents
 1. [Prerequisite](#Prerequisite)

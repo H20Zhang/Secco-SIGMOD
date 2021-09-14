@@ -1,4 +1,4 @@
-## Secco
+# Secco
 
 Secco (**Se**parate **c**ommunication from **co**mputation) is a distributed SQL system for SQL Query, Graph Analytic, and Subgraph Query.
 
@@ -10,11 +10,11 @@ Secco (**Se**parate **c**ommunication from **co**mputation) is a distributed SQL
 
 ------
 
-### Prerequisite
+## Prerequisite
 
 You need to install Spark 2.4.5, Hadoop 2.7.2 on your cluster.
 
-### Project Structure
+## Project Structure
 
 ```
 /datasets - folder for storing toy datasets and folder template for storing datasets of synthetic workload experiment
@@ -46,13 +46,13 @@ You need to install Spark 2.4.5, Hadoop 2.7.2 on your cluster.
 Secco-assembly-0.1.jar - compiled jar package of Secco
 ```
 
-### Usage
+## Usage
 
-#### Import
+### Import
 
 You can import the source code of Secco project using Jetbrain IntelliJ IDEA. 
 
-#### Use
+### Use
 
 The main object in Secco to manipulate is `Dataset`, which just like the `Dataset` in `SparkSQL`. In `Dataset`, it defines relational algebra operators (e.g., select, project, join) that transforms the dataset.
 
@@ -81,13 +81,13 @@ An example is shown below.
 
 For more usage, please check class  `org.apache.spark.secco.SeccoSession` and `org.apache.spark.secco.Dataset`, there contains comments for guiding you using the system.  We recommand you using the `Dataset` api instead of `SQL` api, as it currently have some bugs, and we disable it for now.
 
-### Testing
+## Testing
 
 To reproduce the experiment mentioned in the paper, we prepare the compiled jar packages and scripts. You can follow the guide below to reproduce the results.
 
-#### Datasets
+### Datasets
 
-##### Download Real Datasets
+#### Download Real Datasets
 
 To download the real datasets found in paper
 
@@ -96,7 +96,7 @@ To download the real datasets found in paper
 3. For TW, go to https://anlab-kaist.github.io/traces/WWW2010
 4. For IMDB, go to https://www.imdb.com 
 
-##### Generate Synthetic Datasets
+#### Generate Synthetic Datasets
 
 To generate synthetic datasets needed in Workload Experiment Testing
 
@@ -105,11 +105,11 @@ To generate synthetic datasets needed in Workload Experiment Testing
 3. in SBT shell, execute `testOnly *SyntheticDatasetsSuite`
 4. the generated synthetic datasets will be in `./datasets`
 
-##### Demo Datasets
+#### Demo Datasets
 
 We have prepared three demo datasets, `debugData`, `imdb` (demo version), and `wiki` in `./datasets`
 
-##### Preprocessing
+#### Preprocessing
 
 You need to do some preprocessing on the raw datasets.
 
@@ -120,7 +120,7 @@ You need to do some preprocessing on the raw datasets.
 5. For all relations of IMDB, you need to put it under a folder named `imdb`
 6. For all relations (i.e., `directed` and `undirected` ) of a graph dataset (e.g., WB), you need to put it under a folder (e.g., `wb`). Please name the folders of the graph datasets WB, AS, LJ, OK, UK, TW as wb, as, soc-lj, ok, uk tw respectively. 
 
-#### Scripts for Testing
+### Scripts for Testing
 
 There are several scripts included in "/script" folder fro helping you running Secco in the distributed environment.
 
@@ -136,7 +136,7 @@ To correctly run the scripts, you need to modify the scripts based on your own c
 2. modify test.sh by assiging DataLocation with the location you stored datasets in HDFS.
 3. modify runSpark-logo.sh by replacing $SPARK_HOME with your own spark installation address. 
 
-#### Run Test
+### Run Test
 
 We've prepare a compiled jar package, Secco-assembly-0.1.jar, so that you can use test Secco without import the project and compiling it. 
 

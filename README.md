@@ -17,24 +17,24 @@ You need to install Spark 2.4.5, Hadoop 2.7.2 on your cluster.
 ### Project Structure
 
 ```
-/datasets - folder for storing toy datasets and other datasets that generated from Secco's embeded dataset generator for testing.
+/datasets - folder for storing toy datasets and folder template for storing datasets of synthetic workload experiment
 /project - project related configuration files.
 /script - scripts for running and testing Secco.
 /src
 	src/main - source files
 		src/main/resource - configuration files for Secco
 		src/main/scala - scala source files 
-			org/apache/spark/secco: main project package
-				org/apache/spark/secco/analysis - analyzer related class
-				org/apache/spark/secco/benchmark - benchmark & testing related class
+			org/apache/spark/secco: main package
+				org/apache/spark/secco/analysis - analyzer
+				org/apache/spark/secco/benchmark - benchmark & testing
 				org/apache/spark/secco/catalog - catalog of database
-				org/apache/spark/secco/config - configuration related class
+				org/apache/spark/secco/config - configurations
 				org/apache/spark/secco/execution - physical plans & planner
-				org/apache/spark/secco/expression - expression related class
+				org/apache/spark/secco/expression - expressions
 				org/apache/spark/secco/optimization - logical plans & optimizer
 				org/apache/spark/secco/parsing - parser
 				org/apache/spark/secco/trees - tree struture used in optimizer framework
-				org/apache/spark/secco/types - type related class
+				org/apache/spark/secco/types - types
 				org/apache/spark/secco/utils - utility
 	src/test - unit tests files
 		src/test/resource - configuration files for Secco in unit tests
@@ -43,6 +43,7 @@ You need to install Spark 2.4.5, Hadoop 2.7.2 on your cluster.
 			src/test/scala/playground - playground for testing new functions
 			src/test/scala/unit - unit test
 			src/test/scala/util - utility for testing
+Secco-assembly-0.1.jar - compiled jar package of Secco
 ```
 
 ### Usage

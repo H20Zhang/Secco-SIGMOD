@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # location that stores the data
-DataLocation="/dataset"
+DataLocation="XXX"
 
 # land mark for Single Source Shortest Path Query.
 declare -A landmarks=(["imdb"]=1 ["High"]=1 ["Low"]=1 ["LowHigh"]=1 ["wb"]="438238" ["as"]="149419"  ["soc-lj"]="10029" ["ok"]="377664" ["uk"]="17159799" ["tw"]="813286")

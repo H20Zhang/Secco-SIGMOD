@@ -54,19 +54,3 @@ assembleThenUpload := {
   assembly.value
   "./script/upload.sh" !
 }
-
-//testFrameworks += new TestFramework("org.scalameter.ScalaMeterFramework")
-
-//fork := true
-//outputStrategy := Some(StdoutOutput)
-//connectInput := true
-//logBuffered := false
-//assemblyExcludedJars in assembly := {
-//  val cp = (fullClasspath in assembly).value
-//  cp.filter { f =>
-//    f.data.getName == "systemml-1.1.0.jar" ||
-//      f.data.getName == "SCPSolver.jar" ||
-//      f.data.getName == "LPSOLVESolverPack.jar" ||
-//      f.data.getName == "GLPKSolverPack.jar"
-//  }
-//}

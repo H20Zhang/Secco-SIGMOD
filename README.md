@@ -2,10 +2,6 @@
 
 Secco (**Se**parate **c**ommunication from **co**mputation) is a distributed analytic system for SQL, Graph Analytic, and Subgraph Query.
 
-**Table of Content**
-
-[TOC]
-
 ------
 
 ### Prerequisite
@@ -22,25 +18,25 @@ You need to install Spark 2.4.5, Hadoop 2.7.2 on your cluster.
 	src/main - source files
 		src/main/resource - configuration files for Secco
 		src/main/scala - scala source files 
-			org/apache/spark/secco: main project package (the path name does not have any meaning)
-				org/apache/spark/secco/analysis 
-				org/apache/spark/secco/benchmark
-				org/apache/spark/secco/catalog 
-				org/apache/spark/secco/config
-				org/apache/spark/secco/execution
-				org/apache/spark/secco/expression
-				org/apache/spark/secco/optimization
-				org/apache/spark/secco/parsing
-				org/apache/spark/secco/trees
-				org/apache/spark/secco/types
-				org/apache/spark/secco/utils
+			org/apache/spark/secco: main project package
+				org/apache/spark/secco/analysis - analyzer related class
+				org/apache/spark/secco/benchmark - benchmark & testing related class
+				org/apache/spark/secco/catalog - catalog of database
+				org/apache/spark/secco/config - configuration related class
+				org/apache/spark/secco/execution - physical plans & planner
+				org/apache/spark/secco/expression - expression related class
+				org/apache/spark/secco/optimization - logical plans & optimizer
+				org/apache/spark/secco/parsing - parser
+				org/apache/spark/secco/trees - tree struture used in optimizer framework
+				org/apache/spark/secco/types - type related class
+				org/apache/spark/secco/utils - utility
 	src/test - unit tests files
 		src/test/resource - configuration files for Secco in unit tests
 		src/test/scala - scala unit tests files
-			src/test/scala/integration
-			src/test/scala/playground
-			src/test/scala/unit
-			src/test/scala/util
+			src/test/scala/integration - integration test
+			src/test/scala/playground - playground for testing new functions
+			src/test/scala/unit - unit test
+			src/test/scala/util - utility for testing
 ```
 
 ### Usage
@@ -130,6 +126,8 @@ To correctly run the scripts, you need to modify the scripts based on your own c
 3. modify runSpark-logo.sh by replacing $SPARK_HOME with your own spark installation address. 
 
 #### Run Test
+
+We've prepare a compiled jar package, Secco-assembly-0.1.jar, so that you can use test Secco without import the project and compiling it. 
 
 To run the experiments in the paper:
 

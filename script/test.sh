@@ -114,9 +114,6 @@ SimpleGraphAnalyticJob() {
   inputs=(wb as  soc-lj ok uk tw)
   queries=(I1 I2 I3)
 
-  inputs=(as)
-  queries=(I1)
-
   delayStrategy="Heuristic"
 
   ExecuteTasks $inputs $queries $delayStrategy $landmarks

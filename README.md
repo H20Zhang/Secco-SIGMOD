@@ -132,9 +132,9 @@ test.sh: script that contains test in the paper
 
 To correctly run the scripts, you need to modify the scripts based on your own computer's and clusters' settings.
 
-1. put files you want to upload to cluster under `script/upload`, and modify upload.sh by replacing `Cluster` with your own clusters folder address. 
-2. modify test.sh by assiging DataLocation with the location you stored datasets in HDFS.
-3. modify runSpark-logo.sh by replacing $SPARK_HOME with your own spark installation address. 
+1. put files, e.g., datasets, you want to upload to cluster under `script/upload`, and modify upload.sh by replacing `Cluster` with your own clusters folder address. The compile jar file (Secco-assembly-0.1.jar) will be uploaded by default.
+2. modify `test.sh` by assiging `DataLocation`, e.g., `XXX/dataset` with the location you stored datasets in HDFS.
+3. modify `runSpark-yarn.sh` by replacing `$SPARK_HOME` with your own spark installation address. 
 
 ### Run Test
 
@@ -142,8 +142,33 @@ We've prepare a compiled jar package, Secco-assembly-0.1.jar, so that you can us
 
 To run the experiments in the paper:
 
-1. execute test.sh with selective commands uncommented.
-   1. For Subgraph Query, you need to uncomment `SimpleSubgraphQueryJob` and `SimpleSubgraphQueryJob` in test.sh
-   2. For SQL Query, you need to uncomment `ComplexOLAPQueryJob`
-   3. For Graph Analytic Query, you need to uncomment `SimpleGraphAnalyticJob` and `ComplexGraphAnalyticJob`
-   4. For Workload Experiment Query, you need to uncomment `WorkloadExpJob`
+0. On local machine, cd to folder that contains `Secco`
+
+1. On local machine, execute `script/upload.sh` to upload jar and datasets
+
+2. In cluster, execute `test.sh` with selective commands uncommented.
+   1. For Subgraph Query, you need to uncomment `SimpleSubgraphQueryJob` and `SimpleSubgraphQueryJob` in `test.sh`
+
+   2. For SQL Query, you need to uncomment `ComplexOLAPQueryJob` in `test.sh`
+
+   3. For Graph Analytic Query, you need to uncomment `SimpleGraphAnalyticJob` and `ComplexGraphAnalyticJob `in `test.sh`
+
+   4. For Workload Experiment Query, 
+
+      1. you need to uncomment `WorkloadExpJob `in `test.sh`
+
+      2. you need to modify configuration files `/Secco/src/main/resources/reference.conf`
+
+         1. setting
+
+         ```
+         secco.optimizer.estimator = Histogram // select from "Exact", "Naive", "Histogram"
+         secco.optimizer.exact_cardinality_mode = provided // select from "provided" and "computed"
+         secco.optimizer.enable_only_decouple_optimization = true // if only enable decoupled related optimizations
+         secco.optimizer.enable_early_aggregation_optimization = false // if enable early aggregate optimizations
+         ```
+
+      3. recompile secco project by typing `sbt assembly` in root folder of `Secco`
+
+      4. upload recompiled jar to cluster.
+

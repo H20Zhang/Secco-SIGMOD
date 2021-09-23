@@ -25,7 +25,7 @@ class SeccoBenchmarkTest extends SeccoFunSuite {
   /** Test SeccoBenchmarkExecutor */
   test("debugQuery", IntegrationTestTag) {
     //create Benchmark
-    val query = "Debug1"
+    val query = "S1"
     val benchmarkExecutor = new SeccoBenchmarkExecutor
 
     //find benchmark

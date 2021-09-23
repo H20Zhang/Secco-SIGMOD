@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # location that stores the data
-DataLocation="XXX"
+DataLocation="/hzhang/dataset"
 
 # land mark for Single Source Shortest Path Query.
 declare -A landmarks=(["imdb"]=1 ["High"]=1 ["Low"]=1 ["LowHigh"]=1 ["wb"]="438238" ["as"]="149419"  ["soc-lj"]="10029" ["ok"]="377664" ["uk"]="17159799" ["tw"]="813286")
@@ -9,7 +9,7 @@ declare -A landmarks=(["imdb"]=1 ["High"]=1 ["Low"]=1 ["LowHigh"]=1 ["wb"]="4382
 # Execute a single test-case
 Execute() {
   JAR="./Secco-assembly-0.1.jar"
-  executeScript=runSpark-logo.sh
+  executeScript=runSpark-yarn.sh
   mainClass=org.apache.spark.secco.benchmark.SeccoBenchmarkExecutor
   timeLimit=12h
 
@@ -110,8 +110,13 @@ ComplexSubgraphQueryJob() {
 #   queries=(I1 I2 I3)
 #   delayStrategy="DP" # it can also be "Greedy" and "Heuristic"
 SimpleGraphAnalyticJob() {
+  prefix="${DataLocation}"
   inputs=(wb as  soc-lj ok uk tw)
   queries=(I1 I2 I3)
+
+  inputs=(as)
+  queries=(I1)
+
   delayStrategy="Heuristic"
 
   ExecuteTasks $inputs $queries $delayStrategy $landmarks
@@ -123,6 +128,7 @@ SimpleGraphAnalyticJob() {
 #   queries=(G1I1 G2I1 G1I2 G2I2 G1I3 G2I3)
 #   delayStrategy="DP" # it can also be "Greedy" and "Heuristic"
 ComplexGraphAnalyticJob() {
+  prefix="${DataLocation}"
   inputs=(wb as  soc-lj ok uk tw)
   queries=(G1I1 G2I1 G1I2 G2I2 G1I3 G2I3)
   queries=(G1I3 G2I3)
@@ -252,8 +258,8 @@ WorkloadExpJob() {
 }
 
 #WorkloadExpJob
-#SimpleSubgraphQueryJob
+# SimpleSubgraphQueryJob
 #ComplexSubgraphQueryJob
 #ComplexOLAPQueryJob
-#SimpleGraphAnalyticJob
+SimpleGraphAnalyticJob
 #ComplexGraphAnalyticJob

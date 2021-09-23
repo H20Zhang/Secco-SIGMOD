@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-Cluster="XXX"
+Cluster="itsc:/users/itsc/s880006/secco-sigmod"
 
-rsync -rvz --progress *.jar ./script/* ./script/upload/* ${Cluster}
+rsync -rvzp --progress *.jar ./script/* ./script/upload/* ${Cluster}

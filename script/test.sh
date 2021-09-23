@@ -258,5 +258,5 @@ WorkloadExpJob() {
 # SimpleSubgraphQueryJob
 #ComplexSubgraphQueryJob
 #ComplexOLAPQueryJob
-SimpleGraphAnalyticJob
+# SimpleGraphAnalyticJob
 #ComplexGraphAnalyticJob
